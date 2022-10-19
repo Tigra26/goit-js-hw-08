@@ -14,15 +14,14 @@ formEl.addEventListener('submit',  onFormSubmit)
 
 function onInputChange(evt){
 
-    formData[evt.target.name] = evt.target.value; //  formData.email = emailEl.value; formData.message = textareaEl.value;
+    formData[evt.target.name] = evt.target.value; 
     localStorage.setItem(FORM_STATE, JSON.stringify(formData));
-    // console.log(formData);
-
+   
 }
 function onFormSubmit (evt) {
     evt.preventDefault();
     console.log(JSON.parse(localStorage.getItem(FORM_STATE)))
-    // console.log('Message sent!');
+ 
     evt.target.reset();
     formData = {};
     localStorage.removeItem(FORM_STATE);
@@ -36,9 +35,6 @@ if (savedData === null || savedData === undefined) {
 formData = savedData;
 
 if(savedData){
-    // console.log(savedData);
-    // console.log(emailEl.value);
-    // console.log(textareaEl.value);
 
     emailEl.value = savedData.email ? savedData.email : emailEl.value;
     textareaEl.value = savedData.message ? savedData.message : textareaEl.value;
